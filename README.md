@@ -253,6 +253,8 @@ Frontend on Vercel or Netlify:
 2. Set publish directory: `client/dist`
 3. Set `VITE_API_URL` to your deployed backend API URL, for example `https://your-api.onrender.com/api`
 
+For Vercel-only demos, the repository also includes serverless sample API routes under `api/`. If `VITE_API_URL` is not set in production, the React app calls `/api`, so the deployed frontend can demonstrate searches using the bundled sample dataset.
+
 Backend on Render:
 
 1. Create a Web Service from the GitHub repository

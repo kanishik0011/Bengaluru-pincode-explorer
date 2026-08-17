@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || (
+  import.meta.env.PROD ? '/api' : 'http://localhost:5000/api'
+);
 
 const getFriendlyMessage = (status, fallback) => {
   if (status === 400) return 'Please enter a valid 6-digit numeric pincode.';
