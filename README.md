@@ -1,6 +1,6 @@
 # Bangalore Pincode Explorer
 
-> Screenshot placeholder: add a desktop and mobile screenshot here after the app is running locally or deployed.
+![Bangalore Pincode Explorer screenshot](docs/screenshot.png)
 
 A polished full-stack web application for searching Bangalore pincodes and viewing matching locality, district, state, and post-office details. It is built as a software development internship assignment using React, Express, REST APIs, and MySQL.
 
