@@ -1,6 +1,11 @@
-const API_URL = import.meta.env.VITE_API_URL || (
-  import.meta.env.PROD ? '/api' : 'http://localhost:5000/api'
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
+const isLocalApiUrl = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/api\/?$/i.test(
+  configuredApiUrl || ''
 );
+
+const API_URL = import.meta.env.PROD
+  ? (configuredApiUrl && !isLocalApiUrl ? configuredApiUrl : '/api')
+  : (configuredApiUrl || 'http://localhost:5000/api');
 
 const getFriendlyMessage = (status, fallback) => {
   if (status === 400) return 'Please enter a valid 6-digit numeric pincode.';
@@ -22,7 +27,7 @@ export const fetchPincode = async (pincode) => {
     return data;
   } catch (error) {
     if (error instanceof TypeError) {
-      throw new Error('Network error. Please check that the backend server is running.');
+      throw new Error('Network error. Please refresh the page or try again shortly.');
     }
 
     throw error;
